@@ -1,33 +1,10 @@
-const btn = document.querySelector('.btn');
-const circle = document.querySelector('.circle');
+
+const btn = document.querySelector('.search-btn');
+const input = document.querySelector('.search-input');
 
 
-
-const animation = e => {
-    const top = e.clientY;
-    const left = e.clientX;
-    //pozycja w którą klikamy
-
-    const btnTopPosition = e.target.offsetTop;
-    const btnLeftPosition = e.target.offsetLeft;
-    //pozycja przycisku na stronie
-
-    const insideBtnTop = top - btnTopPosition;
-    const insideBtnLeft = left - btnLeftPosition;
-
-    const circle = document.createElement('span');
-    circle.classList.add('circle');
-
-    circle.style.top = insideBtnTop + 'px';
-    circle.style.left = insideBtnLeft + 'px';
-
-    e.target.appendChild(circle)
-
-    setTimeout(() => {
-        circle.remove()
-    }, 300)
+const showSearchBar = () => {
+    input.classList.toggle('active')
 }
 
-
-
-btn.addEventListener('click', animation)
+btn.addEventListener('click', showSearchBar)
